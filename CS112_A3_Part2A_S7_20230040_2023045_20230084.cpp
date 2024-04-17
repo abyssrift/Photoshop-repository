@@ -1,4 +1,3 @@
-
 /* Photoshop project for University of cairo computer science faculty
 the menu loops forever while constantly uploading filters chosen by user onto specified image.
 image should automatically open when user saves, however, if run by c++ file, code will stop after opening the image, if run by normal visual studio code
@@ -7,7 +6,7 @@ file, it will countinue untill user presses exit.
 
 Authors:
 Adam Samir Farouk 20230040 Filter 1, Filter 2, Filter 7, Filter 4, Filter 22, Filter 16,
-Nour Alaa Hassan 2023045   Filter 10, Filter 11, Filter 20, Filter 12, Filter 21, Filter 19
+Nour Alaa Hassan 20230445   Filter 10, Filter 11, Filter 20, Filter 12, Filter 21, Filter 19
 Aya magdi Ali Ahmed 20230084 Filter 5, Filter 8, Filter 9, Filter 15, Filter 17, Filter 18
 
 Menu was done by all of us combined.
@@ -366,14 +365,32 @@ k:
     char c; cin >> c;
 
     if(c == '1'){   // simple frame
+        cout << "Choose the color of frame\n";
+        cout << "1) white\n2) red\n3) green\n4) blue\n";
+        int colo; cin >> colo;
+        cl:
         unsigned int frameSize = image.width/60; 
 
         for (unsigned int i = 5; i < image.width-5; i++) {
             for (unsigned int j = 5; j < image.height-5; j++) {
 
                 if (i < frameSize || j < frameSize || i >= image.width - frameSize || j >= image.height - frameSize) {
-                    for (int k = 0; k < 3; k++) {
-                        image(i, j, k) = 255; 
+                    if(colo == 1){
+                        for (int k = 0; k < 3; k++) {
+                            image(i, j, k) = 255; 
+                        }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl;
                     }
                 }
             }
@@ -385,14 +402,32 @@ k:
     }
 
     else if(c == '2'){   // fancy frame
+        cout << "Choose the color of frame\n";
+        cout << "1) white\n2) red\n3) green\n4) blue\n";
+        cl0:
+        int colo; cin >> colo;
         unsigned int frameSize = image.height/90; 
 
         for (unsigned int i = 5; i < image.width-5; i++) {
             for (unsigned int j = 5; j < image.height-5; j++) {
 
                 if (i < frameSize || j < frameSize || i >= image.width - frameSize || j >= image.height - frameSize) {
-                    for (int k = 0; k < 3; k++) {
-                        image(i, j, k) = 255; 
+                    if(colo == 1){
+                        for (int k = 0; k < 3; k++) {
+                            image(i, j, k) = 255; 
+                        }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
                     }
                 }
             }
@@ -404,15 +439,43 @@ k:
             for (unsigned int j = 10; j < image.height-10; j++) {
 
                 if (i < frameSize2 || j < frameSize2 || i >= image.width - frameSize2 || j >= image.height - frameSize2) {
-                    for (int k = 0; k < 3; k++) {
-                        image(i, j, k) = 255; 
+                    if(colo == 1){
+                        for (int k = 0; k < 3; k++) {
+                            image(i, j, k) = 255; 
+                        }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
                     }
                 }
 
                 if (i < frameSize2 * 2 && j < frameSize2 * 2 || i >= image.width-1-frameSize2 * 2 && j >= image.height-1-frameSize2 * 2 ||
                     i < frameSize2 * 2 && j >= image.height-1-frameSize2 * 2 || i >= image.width-1-frameSize2 * 2 && j < frameSize2 * 2){
-                    for (int k = 0; k < 3; k++) {
-                        image(i, j, k) = 255; 
+                    if(colo == 1){
+                        for (int k = 0; k < 3; k++) {
+                            image(i, j, k) = 255; 
+                        }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
                     }
                 }
 
@@ -422,32 +485,102 @@ k:
                     (i < frameSize2 * 4 && i > frameSize2 * 3 && j >= image.height - 1 - frameSize2 * 4 && j < image.height - 1 - frameSize2 * 3) ||
                     (i >= image.width - 1 - frameSize2 * 4 && i < image.width - 1 - frameSize2 * 3 && j < frameSize2 * 4 && j > frameSize2 * 3 )) {
 
-                    for (int k = 0; k < 3; k++) {
-                        image(i, j, k) = 255; 
+                    if(colo == 1){
+                        for (int k = 0; k < 3; k++) {
+                            image(i, j, k) = 255; 
+                        }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
                     }
                 }
                 if(j < frameSize2 * 4  && j > frameSize2 * 4 - 5 || i < frameSize2 * 4 && i > frameSize2 * 4 - 5 ||
                 j > image.height - frameSize2 * 4 - 5 && j < image.height - frameSize2 * 4 || i > image.width - frameSize2 * 4 - 5 && i < image.width - frameSize2 * 4
                 ){
                     if(i < frameSize2 * 4 && j < frameSize2 * 4){
+                        if(colo == 1){
                         for (int k = 0; k < 3; k++) {
                             image(i, j, k) = 255; 
                         }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
+                    }
                     }
                     else if(i < frameSize2 * 4 && j > image.height - frameSize2 * 4 - 5){
+                        if(colo == 1){
                         for (int k = 0; k < 3; k++) {
                             image(i, j, k) = 255; 
                         }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
+                    }
                     }
                     else if (i > image.width - frameSize2 * 4 - 5 && j < frameSize2 * 4){
+                        if(colo == 1){
                         for (int k = 0; k < 3; k++) {
                             image(i, j, k) = 255; 
                         }
                     }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
+                    }
+                    }
                     else if(i > image.width - frameSize2 * 4 - 5 && j > image.height - frameSize2 * 4 - 5){
+                        if(colo == 1){
                         for (int k = 0; k < 3; k++) {
                             image(i, j, k) = 255; 
                         }
+                    }
+                    else if(colo == 2){
+                        image(i, j, 0) = 255;  image(i, j, 1) = 0;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 3){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 255;  image(i, j, 2) = 0;
+                    }
+                    else if(colo == 4){
+                        image(i, j, 0) = 0;  image(i, j, 1) = 0;  image(i, j, 2) = 255;
+                    }
+                    else{
+                        cout << "wrong number\n"; goto cl0;
+                    }
                     }
                 }
                 
@@ -710,7 +843,7 @@ Image filter18(Image processed_image){
         for (int j = 0; j < processed_image.height; j++)
         {
             processed_image(i,j,0)=processed_image(i,j,0);
-            processed_image(i,j,1)=processed_image(i,j,1)-50;
+            processed_image(i,j,1)=max(0,processed_image(i,j,1)-30);
             processed_image(i,j,2)=processed_image(i,j,2);
 
             
@@ -1055,4 +1188,3 @@ int main()
 {
     menu();
 }
-
